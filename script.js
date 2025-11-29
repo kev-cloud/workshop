@@ -37,7 +37,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 });
 
 // Image Slider
-const images = ["images1.jpg", "images2.jpg", "images3.jpg"];
+const images = ["images1.jpg", "images2.jpg", "images3.jpg", "images4.jpg", "images5.jpg"];
 let index = 0;
 
 document.getElementById("nextBtn").onclick = () => {
