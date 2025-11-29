@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,34 +6,44 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Body */
 body {
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #dff9fb, #74b9ff);
   color: #333;
-  line-height: 1.6;
+  transition: 0.5s ease;
+  scroll-behavior: smooth;
 }
 
-/* Navigation Bar */
-header {
-  background-color: #333;
+/* Dark Mode */
+body.dark {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
-  padding: 15px 0;
+}
+
+/* Header */
+header {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 nav {
-  width: 85%;
-  margin: auto;
   display: flex;
   justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
   align-items: center;
 }
 
 nav h1 {
-  font-size: 1.8em;
+  color: #00eaff;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 20px;
 }
 
@@ -41,179 +51,233 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
 }
 
 nav ul li a:hover {
-  color: #00bcd4;
+  color: #00eaff;
 }
 
-/* Hero Section */
+/* Theme Button */
+#themeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: #00bcd4;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Back To Top */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #00bcd4;
+  color: white;
+  display: none;
+}
+
+/* Sections */
+section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+body.dark section {
+  background: rgba(0,0,0,0.4);
+}
+
+/* Hero */
 .hero {
-  background-color: #e3f2fd;
   text-align: center;
-  padding: 60px 20px;
 }
 
 .hero img {
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #00bcd4;
-  margin-bottom: 20px;
+  border: 3px solid #00bcd4;
 }
 
 .hero h2 {
-  font-size: 2em;
-  color: #333;
+  margin-top: 15px;
+  font-size: 24px;
+}
+
+/* Resume Button */
+.resume-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #00bcd4;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.resume-btn:hover {
+  transform: scale(1.05);
+  background: #0097a7;
+}
+
+/* Education Grid */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.edu-card {
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+body.dark .edu-card {
+  background: #1f1f1f;
+}
+
+.edu-card:hover {
+  transform: translateY(-8px);
+}
+
+.edu-card img {
+  width: 100px;
   margin-bottom: 10px;
 }
 
-.hero p {
-  max-width: 600px;
-  margin: 10px auto;
-  color: #555;
-}
-
-/* About Section */
-#about {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-#about h2 {
-  color: #00bcd4;
-  margin-bottom: 10px;
-}
-
-#about p {
-  max-width: 600px;
-  margin: auto;
-  color: #555;
-}
-
-/* Projects Section */
-#projects {
-  background-color: #fff;
-  padding: 50px 20px;
-  text-align: center;
-}
-
-#projects h2 {
-  color: #00bcd4;
-  margin-bottom: 30px;
-}
-
+/* Projects */
 .project-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 25px;
+  justify-content: center;
+  gap: 20px;
 }
 
 .project {
-  background-color: #fdfdfd;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  width: 300px;
+  width: 280px;
   padding: 15px;
-  transition: transform 0.3s;
+  border-radius: 10px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+
+body.dark .project {
+  background: #1f1f1f;
 }
 
 .project:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
 }
 
 .project img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 8px;
 }
 
-.project h3 {
-  margin-bottom: 5px;
+/* Skills */
+.skill {
+  margin: 20px 0;
 }
 
-.project p {
-  color: #555;
-  font-size: 0.95em;
-}
-
-/* Skills Section */
-#skills {
-  background-color: #f1f1f1;
-  padding: 50px 20px;
-  text-align: center;
-}
-
-#skills h2 {
-  color: #00bcd4;
-  margin-bottom: 20px;
-}
-
-.skills-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.skills-list span {
-  background-color: #00bcd4;
-  color: white;
-  padding: 10px 20px;
+.progress {
+  width: 100%;
+  height: 20px;
+  background: #ccc;
   border-radius: 20px;
-  font-weight: bold;
+  overflow: hidden;
 }
 
-/* Contact Section */
-#contact {
-  background-color: #fff;
-  padding: 50px 20px;
+.bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00bcd4, #0097a7);
+  border-radius: 20px;
+}
+
+/* Media */
+#media video,
+#media audio,
+#media canvas {
+  display: block;
+  margin: 20px auto;
+}
+
+/* Slider */
+.slider {
   text-align: center;
 }
 
-#contact h2 {
-  color: #00bcd4;
-  margin-bottom: 15px;
+.slider img {
+  width: 320px;
+  border-radius: 10px;
 }
 
-#contact p {
-  color: #555;
-  margin: 5px 0;
+.slider-buttons {
+  text-align: center;
+  margin-top: 10px;
 }
 
-#contact a {
-  color: #00bcd4;
-  text-decoration: none;
+.slider-buttons button {
+  padding: 8px 15px;
+  border: none;
+  background: #00bcd4;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#contact a:hover {
-  text-decoration: underline;
+/* Contact Form */
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+
+#contact input, #contact textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+#contact button {
+  background: #00bcd4;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#formMsg {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 /* Footer */
 footer {
-  background-color: #333;
-  color: white;
   text-align: center;
-  padding: 15px 0;
-  margin-top: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-  }
-
-  .project-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .skills-list {
-    flex-direction: column;
-  }
+  padding: 15px;
+  background: black;
+  color: white;
 }
